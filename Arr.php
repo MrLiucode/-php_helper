@@ -163,3 +163,23 @@ function array_get_value(array $array, $key){
     }
     return $result;
 }
+
+/**
+ * 提取二维数组里的2个键作为一位数组返回
+ * @param array $data
+ * @param $keyName
+ * @param $valueName
+ * @return array
+ */
+function array_melting(array $data, $keyName, $valueName){
+    $result = [];
+    foreach($data as $item){
+        $value = array_get($item, $valueName);
+        if($key = array_get($item, $keyName)){
+            $result[$key] = $value;
+            continue;
+        }
+        $result[] = $value;
+    }
+    return $result;
+}
