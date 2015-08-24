@@ -145,3 +145,21 @@ function array_get_all(array $key_array, array $value_array){
     return $result;
 
 }
+
+/**
+ * 获取数组中某个键的值，以一位数组的方式返回
+ * @param array $array
+ * @param $key
+ * @return array
+ */
+function array_get_value(array $array, $key){
+    $result = [];
+    if($array && $key){
+        foreach($array as $item){
+            if($res = array_get($item, $key)){
+                $result[] = $res;
+            }
+        }
+    }
+    return $result;
+}
